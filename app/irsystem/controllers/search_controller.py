@@ -1,4 +1,5 @@
 from . import *  
+from .data import product_dict, category_dict, brand_dict
 from app.irsystem.models.helpers import *
 from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 
