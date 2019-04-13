@@ -14,7 +14,6 @@ treatment_db = pd.read_csv('data/treatment_db.csv')
 Class Representing the information of a product
 """
 class Product:
-
   def __init__(self, name, brand, image, description, price, category):
     self.name = name
     self.brand = brand
@@ -28,19 +27,14 @@ class Product:
 Class Represetning the information of a review
 """
 class Review:
-  
   def __init__(self, text, rating, skin_type, skin_concerns):
-    self.text = ''
-    self.rating = 0
-    self.skin_type = ''
-    self.skin_concerns = ''
+    self.text = text
+    self.rating = rating
+    self.skin_type = skin_type
+    self.skin_concerns = skin_concerns
 
-# organize data into 3 dictionaries
-product_dict = {}
-category_dict = {}
-brand_dict = {}
 
-def parse_category(category_name, db):
+def parse_category(category_name, db, product_dict, category_dict, brand_dict):
   for i in range(len(db.index)):
     product_id = str(db['product_id'][i])
     brand = str(db['brand'][i])
@@ -76,11 +70,16 @@ def parse_category(category_name, db):
                     )
     product_dict[product_id].reviews.append(review)
 
-parse_category('cleanser', cleanser_db)
-parse_category('eye_care', eye_care_db)
-parse_category('lip_treatment', lip_treatment_db)
-parse_category('masks', masks_db)
-parse_category('moisturizer', moisturizer_db)
-parse_category('sun_care', sun_care_db)
-parse_category('treatment', treatment_db)
+  return product_dict, category_dict, brand_dict
 
+def parse_all():
+  product_dict, category_dict, brand_dict = parse_category('cleanser', cleanser_db, {}, {}, {})
+  product_dict, category_dict, brand_dict = parse_category('eye_care', eye_care_db, product_dict, category_dict, brand_dict)
+  product_dict, category_dict, brand_dict = parse_category('lip_treatment', lip_treatment_db, product_dict, category_dict, brand_dict)
+  product_dict, category_dict, brand_dict = parse_category('masks', masks_db, product_dict, category_dict, brand_dict)
+  product_dict, category_dict, brand_dict = parse_category('moisturizer', moisturizer_db, product_dict, category_dict, brand_dict)
+  product_dict, category_dict, brand_dict = parse_category('sun_care', sun_care_db, product_dict, category_dict, brand_dict)
+  product_dict, category_dict, brand_dict = parse_category('treatment', treatment_db, product_dict, category_dict, brand_dict)
+  return product_dict, category_dict, brand_dict
+
+product_dict, category_dict, brand_dict = parse_all()
