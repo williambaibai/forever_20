@@ -3,6 +3,7 @@
   <!--<link rel="stylesheet" href="/static/bootstrap.min.css">
   <link rel="stylesheet" href="/static/main.css">-->
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <div class="topcorner">
@@ -24,18 +25,18 @@
     <div class="form-group">
       <label for="category">Product Category</label>
       <select id = "category" name = "category">
-        <option value = "all-categories" selected = "selected">All Categories</option>
-        <option value = "moisturizers">Moisturizers</option>
-        <option value = "cleansers">Cleansers</option>
-        <option value = "treatments">Treatments</option>
-        <option value = "masks">Masks</option>
+        <option value = "all_categories" selected = "selected">All Categories</option>
+        <option value = "moisturizer">Moisturizer</option>
+        <option value = "cleanser">Cleanser</option>
+        <option value = "treatment">Treatment</option>
+        <option value = "mask">Mask</option>
         <option value = "eye_care">Eye Care</option>
         <option value = "sun_care">Sun Care</option>
-        <option value = "lip_treatments">Lip Treatments</option>
+        <option value = "lip_treatment">Lip Treatment</option>
       </select>
       <label for="skin_type">Skin Type</label>
       <select id = "skin_type" name = "skin_type">
-        <option value = "all_skin_type" selected = "selected">All Skin Type</option>
+        <option value = "all_skin_types" selected = "selected">All Skin Types</option>
         <option value = "dry">Dry</option>
         <option value = "oily">Oily</option>
         <option value = "combination">Combination</option>
@@ -43,22 +44,40 @@
       </select>
       <br>
       <label>Skin Concern/Desired Effect</label>
-      <label for = "skin_concern1"><input type = "checkbox" id = "skin_concern1" name="skin_concern" value="hydrating">Hydrating</label>
-      <label for = "skin_concern2"><input type = "checkbox" id = "skin_concern2" name="skin_concern" value="acne">Acne</label>
-      <label for = "skin_concern3"><input type = "checkbox" id = "skin_concern3" name="skin_concern" value="aging">Aging</label>
-      <label for = "skin_concern4"><input type = "checkbox" id = "skin_concern4" name="skin_concern" value="blackheads">Blackheads</label>
-      <label for = "skin_concern5"><input type = "checkbox" id = "skin_concern5" name="skin_concern" value="sensitivity">Sensitivity</label>
-      <label for = "skin_concern6"><input type = "checkbox" id = "skin_concern6" name="skin_concern" value="pores">Pores</label>
-      <label for = "skin_concern7"><input type = "checkbox" id = "skin_concern7" name="skin_concern" value="smoothing">Smoothing</label>
-      <label for = "skin_concern8"><input type = "checkbox" id = "skin_concern8" name="skin_concern" value="brightening">Brightening</label>
-      <label for = "skin_concern9"><input type = "checkbox" id = "skin_concern9" name="skin_concern" value="whitening">Whitening</label>
-      <label for = "skin_concern10"><input type = "checkbox" id = "skin_concern10" name="skin_concern" value="exfoliating">Exfoliating</label>
-      <label for = "skin_concern11"><input type = "checkbox" id = "skin_concern11" name="skin_concern" value="wrinkle">Wrinkle</label>
-      <label for = "skin_concern12"><input type = "checkbox" id = "skin_concern12" name="skin_concern" value="dark_spot">Dark Spot</label>
-      <div id = "brandLabels">
-        <label for = "brand">Brand</label>
-        <select id = "brand">
-        <option value = "all_brand" selected = "selected">All Brands</option>
+      <label for = "skin_concern1"><input type = "checkbox" id = "skin_concern1" name="skin_concern" value="hydrating" required>Hydrating</label>
+      <label for = "skin_concern2"><input type = "checkbox" id = "skin_concern2" name="skin_concern" value="acne" required>Acne</label>
+      <label for = "skin_concern3"><input type = "checkbox" id = "skin_concern3" name="skin_concern" value="aging" required>Aging</label>
+      <label for = "skin_concern4"><input type = "checkbox" id = "skin_concern4" name="skin_concern" value="blackheads" required>Blackheads</label>
+      <label for = "skin_concern5"><input type = "checkbox" id = "skin_concern5" name="skin_concern" value="sensitivity" required>Sensitivity</label>
+      <label for = "skin_concern6"><input type = "checkbox" id = "skin_concern6" name="skin_concern" value="pores" required>Pores</label>
+      <label for = "skin_concern7"><input type = "checkbox" id = "skin_concern7" name="skin_concern" value="smoothing" required>Smoothing</label>
+      <label for = "skin_concern8"><input type = "checkbox" id = "skin_concern8" name="skin_concern" value="brightening" required>Brightening</label>
+      <label for = "skin_concern9"><input type = "checkbox" id = "skin_concern9" name="skin_concern" value="whitening" required>Whitening</label>
+      <label for = "skin_concern10"><input type = "checkbox" id = "skin_concern10" name="skin_concern" value="exfoliating" required>Exfoliating</label>
+      <label for = "skin_concern11"><input type = "checkbox" id = "skin_concern11" name="skin_concern" value="wrinkle" required>Wrinkle</label>
+      <label for = "skin_concern12"><input type = "checkbox" id = "skin_concern12" name="skin_concern" value="dark_spot" required>Dark Spot</label>
+      <script>
+      $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+          if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+          }
+
+          else {
+            requiredCheckboxes.attr('required', 'required');
+          }
+        });
+
+      });
+    </script>
+    <div id = "brandLabels">
+      <label for = "brand">Brand</label>
+      <select id = "brand">
+        <option value = "all_brands" selected = "selected">All Brands</option>
       </select>
     </div>
     <script>
