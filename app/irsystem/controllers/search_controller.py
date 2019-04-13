@@ -22,11 +22,14 @@ def search():
 	skin_concern = request.args.get('skin_concern')
 	skin_type = request.args.get('skin_type')
 	
+	if not skin_concern:
+		return render_template('search.html', name=project_name, netid=net_id, output_message='', data=[])
+
 	# Filter products by query category and brand 
 	filtered_products_id = set(product_dict.keys())
-	if str(category) != 'all_categories':
+	if category and str(category) != 'all_categories':
 		filtered_products_id = filtered_products_id.intersection(set(category_dict[category]))
-	if str(brand) != 'all_brands':
+	if brand and str(brand) != 'all_brands':
 		filtered_products_id = filtered_products_id.intersection(set(brand_dict[brand]))
 				
 	# Vectorize product data along with product ID for cosine sim
