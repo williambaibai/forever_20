@@ -56,6 +56,23 @@
       <label for = "skin_concern10"><input type = "checkbox" id = "skin_concern10" name="skin_concern" value="exfoliating" required>Exfoliating</label>
       <label for = "skin_concern11"><input type = "checkbox" id = "skin_concern11" name="skin_concern" value="wrinkle" required>Wrinkle</label>
       <label for = "skin_concern12"><input type = "checkbox" id = "skin_concern12" name="skin_concern" value="dark_spot" required>Dark Spot</label>
+      <label for = "skin_concern13"><input type = "checkbox" id = "skin_concern13" name="skin_concern" value="lightweight" required>Lightweight</label>
+      <label for = "skin_concern14"><input type = "checkbox" id = "skin_concern14" name="skin_concern" value="mattifying" required>Mattifying</label>
+      <label for = "skin_concern15"><input type = "checkbox" id = "skin_concern15" name="skin_concern" value="non-greasy" required>Non-greasy</label>
+      <label for = "skin_concern16"><input type = "checkbox" id = "skin_concern16" name="skin_concern" value="natural" required>Natural</label>
+      <label for = "skin_concern17"><input type = "checkbox" id = "skin_concern17" name="skin_concern" value="absorbs_quickly" required>Absorbs Quickly</label>
+      <label for = "skin_concern18"><input type = "checkbox" id = "skin_concern18" name="skin_concern" value="refreshing" required>Refreshing</label>
+      <label for = "skin_concern19"><input type = "checkbox" id = "skin_concern19" name="skin_concern" value="sheer_converage" required>Sheer Coverage</label>
+      <label for = "skin_concern20"><input type = "checkbox" id = "skin_concern20" name="skin_concern" value="non-sticky" required>Non-sticky</label>
+      <label for = "skin_concern21"><input type = "checkbox" id = "skin_concern21" name="skin_concern" value="scented" required>Scented</label>
+      <label for = "skin_concern22"><input type = "checkbox" id = "skin_concern22" name="skin_concern" value="glossy" required>Glossy</label>
+      <label for = "skin_concern23"><input type = "checkbox" id = "skin_concern23" name="skin_concern" value="fast-acting" required>Acting</label>
+      <label for = "skin_concern24"><input type = "checkbox" id = "skin_concern24" name="skin_concern" value="rich" required>Rich</label>
+      <label for = "skin_concern25"><input type = "checkbox" id = "skin_concern25" name="skin_concern" value="milky" required>Milky</label>
+      <label for = "skin_concern26"><input type = "checkbox" id = "skin_concern26" name="skin_concern" value="gentle" required>Gentle</label>
+      <label for = "skin_concern27"><input type = "checkbox" id = "skin_concern27" name="skin_concern" value="foamy" required>Foamy</label>
+      <label for = "skin_concern28"><input type = "checkbox" id = "skin_concern28" name="skin_concern" value="portable" required>Portable</label>
+
       <script>
       $(function(){
 
@@ -73,41 +90,48 @@
         });
 
       });
-    </script>
-    <div id = "brandLabels">
-      <label for = "brand">Brand</label>
-      <select id = "brand">
-        <option value = "all_brands" selected = "selected">All Brands</option>
-      </select>
+      </script>
+      <div id = "brandLabels">
+        <label for = "brand">Brand</label>
+        <select id = "brand">
+          <option value = "all_brands" selected = "selected">All Brands</option>
+        </select>
+      </div>
+      <script>
+      var brandList = ['Makeup Eraser', 'The Ordinary', 'Saturday Skin', 'Lancôme', 'AERIN', 'FENTY BEAUTY by Rihanna', 'Supergoop!', "Kiehl's Since 1851", 'Hourglass', 'MILK MAKEUP', 'Anthony', 'HUM Nutrition', 'Yves Saint Laurent', 'INC.redible', 'PAT McGRATH LABS', 'KORRES', 'First Aid Beauty', 'Tata Harper', 'BECCA', 'Origins', 'Tatcha', 'KENZOKI', 'Dermalogica', 'FARSÁLI', 'Smashbox', 'Apivita', 'Private Doctor', 'J.One', 'Jouer Cosmetics', 'Go-To', 'Glow Recipe', 'rms beauty', 'AMOREPACIFIC', 'Urban Decay', 'NuFACE', 'OLEHENRIKSEN', 'Dior', 'Biossance', 'Moroccanoil', "L'Occitane", 'Neogen Dermalogy', 'Peace Out', 'Herbivore', 'belif', 'IT Cosmetics', 'Skin Laundry', 'BeautyBio', 'Farmacy', 'Drunk Elephant', 'Sand & Sky', 'Clarisonic', 'Pretty Vulgar', 'Eve Lom', 'TOM FORD', 'Perricone MD', 'KORA Organics', 'GLAMGLOW', 'Youth To The People', 'Skin Inc Supplement Bar', 'Givenchy', 'Summer Fridays', 'Foreo', 'Kopari', 'Skinfix', 'Estée Lauder', 'Kate Somerville', 'philosophy', 'NARS', 'LightStim', 'SUNDAY RILEY', 'Alpha-H', 'LANEIGE', 'Klorane', 'Clarins', 'Flora + Bast', 'Giorgio Armani Beauty', 'Fresh', 'ILIA', 'Moon Juice', 'Black Up', 'MDSolarSciences', 'DERMAdoctor', 'GLO Science', 'Josie Maran', 'Algenist', 'Indie Lee', 'Edible Beauty', 'REN Clean Skincare', 'Rosebud Perfume Co.', 'Too Faced', 'BIOEFFECT', 'CLINIQUE', 'Dr. Jart+', 'RODIN olio lusso', 'Koh Gen Do', 'Sol de Janeiro', 'Omorovicza', 'Buxom', 'Volition Beauty', "Dr Roebuck's", 'Charlotte Tilbury', 'trèStiQue', 'Lancer', 'Grande Cosmetics', 'Naturally Serious', 'Peter Thomas Roth', "It's Skin", 'Marc Jacobs Beauty', 'Bobbi Brown', 'Wander Beauty', 'Proactiv', 'Shiseido', 'Bite Beauty', 'boscia', 'bareMinerals', 'Murad', 'MAKE UP FOR EVER', 'Caudalie', 'Kaja', 'Jack Black', 'Erborian', 'SK-II', 'lilah b.', 'tarte', 'Winky Lux', 'COVER FX', 'SEPHORA COLLECTION', 'Obagi Clinical', 'Dr. Brandt Skincare', 'PMD', 'Dr. Dennis Gross Skincare', 'Laura Mercier', 'Erno Laszlo', 'La Mer', 'Mario Badescu', 'COOLA', 'Briogeo', 'Too Cool For School', 'Guerlain']
+
+      const brandSelect = d3.select("select#brand")
+      var options = brandSelect.selectAll("options")
+      .data(brandList)
+      .enter()
+      .append("option");
+
+      options.text(function(d) {
+        return d;
+      })
+      .attr("value", function(d) {
+        return d;
+      });
+      </script>
     </div>
-    <script>
-    var brandList = ['Makeup Eraser', 'The Ordinary', 'Saturday Skin', 'Lancôme', 'AERIN', 'FENTY BEAUTY by Rihanna', 'Supergoop!', "Kiehl's Since 1851", 'Hourglass', 'MILK MAKEUP', 'Anthony', 'HUM Nutrition', 'Yves Saint Laurent', 'INC.redible', 'PAT McGRATH LABS', 'KORRES', 'First Aid Beauty', 'Tata Harper', 'BECCA', 'Origins', 'Tatcha', 'KENZOKI', 'Dermalogica', 'FARSÁLI', 'Smashbox', 'Apivita', 'Private Doctor', 'J.One', 'Jouer Cosmetics', 'Go-To', 'Glow Recipe', 'rms beauty', 'AMOREPACIFIC', 'Urban Decay', 'NuFACE', 'OLEHENRIKSEN', 'Dior', 'Biossance', 'Moroccanoil', "L'Occitane", 'Neogen Dermalogy', 'Peace Out', 'Herbivore', 'belif', 'IT Cosmetics', 'Skin Laundry', 'BeautyBio', 'Farmacy', 'Drunk Elephant', 'Sand & Sky', 'Clarisonic', 'Pretty Vulgar', 'Eve Lom', 'TOM FORD', 'Perricone MD', 'KORA Organics', 'GLAMGLOW', 'Youth To The People', 'Skin Inc Supplement Bar', 'Givenchy', 'Summer Fridays', 'Foreo', 'Kopari', 'Skinfix', 'Estée Lauder', 'Kate Somerville', 'philosophy', 'NARS', 'LightStim', 'SUNDAY RILEY', 'Alpha-H', 'LANEIGE', 'Klorane', 'Clarins', 'Flora + Bast', 'Giorgio Armani Beauty', 'Fresh', 'ILIA', 'Moon Juice', 'Black Up', 'MDSolarSciences', 'DERMAdoctor', 'GLO Science', 'Josie Maran', 'Algenist', 'Indie Lee', 'Edible Beauty', 'REN Clean Skincare', 'Rosebud Perfume Co.', 'Too Faced', 'BIOEFFECT', 'CLINIQUE', 'Dr. Jart+', 'RODIN olio lusso', 'Koh Gen Do', 'Sol de Janeiro', 'Omorovicza', 'Buxom', 'Volition Beauty', "Dr Roebuck's", 'Charlotte Tilbury', 'trèStiQue', 'Lancer', 'Grande Cosmetics', 'Naturally Serious', 'Peter Thomas Roth', "It's Skin", 'Marc Jacobs Beauty', 'Bobbi Brown', 'Wander Beauty', 'Proactiv', 'Shiseido', 'Bite Beauty', 'boscia', 'bareMinerals', 'Murad', 'MAKE UP FOR EVER', 'Caudalie', 'Kaja', 'Jack Black', 'Erborian', 'SK-II', 'lilah b.', 'tarte', 'Winky Lux', 'COVER FX', 'SEPHORA COLLECTION', 'Obagi Clinical', 'Dr. Brandt Skincare', 'PMD', 'Dr. Dennis Gross Skincare', 'Laura Mercier', 'Erno Laszlo', 'La Mer', 'Mario Badescu', 'COOLA', 'Briogeo', 'Too Cool For School', 'Guerlain']
-
-    const brandSelect = d3.select("select#brand")
-    var options = brandSelect.selectAll("options")
-    .data(brandList)
-    .enter()
-    .append("option");
-
-    options.text(function(d) {
-      return d;
-    })
-    .attr("value", function(d) {
-      return d;
-    });
-    </script>
-  </div>
-  <button type="submit" class="btn btn-info"> Go! </button>
-</form>
-<form class="form-inline global-search">
-  {% if data %}
-  <h1>{{output_message}}</h1>
-  {% for d in data %}
-  <br>
-  <p>{{d}}</p>
-  {% endfor %}
-  {% endif %}
-</form>
+    <button type="submit" class="btn btn-info"> Go! </button>
+  </form>
+  <form class="form-inline global-search">
+    {% if data %}
+    <h1>{{output_message}}</h1>
+    {% for d in data %}
+    <div class = "product">
+      <p class="productName">{{d['name']}}</p>
+      <p class="productBrand">{{d['brand']}}</p>
+      <img class="productImage" src = "{{d['image']}}" alt='productImage'/>
+      <p class="productPrice">{{d['price']}}</p>
+      <p class="productRating">{{d['rating']}}</p>
+    </div>
+    <br>
+    <p>{{d}}</p>
+    {% endfor %}
+    {% endif %}
+  </form>
 </body>
 
 </html>
