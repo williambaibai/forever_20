@@ -58,11 +58,12 @@ def search():
 	filtered_products_id.insert(0, 'query')
 	filtered_prod_reviews.insert(0, skin_concern_str)
 
-	print(len(filtered_prod_reviews))
-
-	# TODO: try statement to catch BAD query
 	vectorizer = TfidfVectorizer(max_features=5000, stop_words='english', max_df=0.8, min_df=0.1, norm='l2')
-	prod_by_vocab = vectorizer.fit_transform(filtered_prod_reviews).toarray()
+	try:
+		prod_by_vocab = vectorizer.fit_transform(filtered_prod_reviews).toarray()
+	except:
+		print(len(filtered_prod_reviews)) 
+		return render_template('search.html', name=project_name, netid=net_id, output_message='No results for the selected Category and Brand, Please Try Again', data=[])
 
 	# Run Cosine Sim
 	result_ids = cosine_sim(filtered_products_id, prod_by_vocab)
@@ -96,25 +97,3 @@ def cosine_sim(filtered_products_id, tfidf_mat):
 	if 'query' in product_ids:
 		product_ids.remove('query')
 	return product_ids
-
-"""
-filtered_products_id = set(product_dict.keys())
-filtered_products_id = filtered_products_id.intersection(set(category_dict['moisturizer']))
-filtered_products_id = list(filtered_products_id)
-filtered_products = [product_dict[prod_id] for prod_id in filtered_products_id]
-filtered_prod_reviews = []
-for product in filtered_products:
-	concat_review = ''
-	for review in product.reviews:
-		concat_review = concat_review + review.text
-	filtered_prod_reviews.append(concat_review)
-filtered_products_id.insert(0, 'query')
-filtered_prod_reviews.insert(0, 'hydrating, spf, brightening, whitening, refreshing')
-
-vectorizer = TfidfVectorizer(max_features=5000, stop_words='english', max_df=0.8, min_df=10, norm='l2')
-prod_by_vocab = vectorizer.fit_transform(filtered_prod_reviews).toarray()
-
-# Run Cosine Sim
-result_ids = cosine_sim(filtered_products_id, prod_by_vocab)
-print(result_ids)
-"""
